@@ -12,6 +12,14 @@ public class Rooms {
         for(int roomNumber = 1;roomNumber<=numberOfRooms;roomNumber++){
             mapForRoomNames.put(roomNumber,"R"+String.valueOf(roomNumber));
         }
+//        System.out.println(mapForRoomNames);
     }
 
+    public String fetchRoomIdGivenRoomNumber(int candidateCount) {
+        int roomNumber = candidateCount %numberOfRooms == 0 ? candidateCount : candidateCount % numberOfRooms;
+        if (roomNumber == candidateCount && roomNumber > numberOfRooms) {
+            roomNumber = roomNumber / numberOfRooms;
+        }
+        return mapForRoomNames.get(roomNumber);
+    }
 }
