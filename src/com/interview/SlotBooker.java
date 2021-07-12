@@ -30,11 +30,7 @@ public class SlotBooker {
         if (interviewsTakenAtOneTime.get("9-11") >= 2) {
             return false;
         }
-        char interviewerName = interviewers.fetchInterviewerMatchingWithId(candidateCount);
-        String roomId = rooms.fetchRoomIdGivenRoomNumber(candidateCount);
-
-        System.out.println(candidateCount + " " + interviewerName + " " + roomId + " 9-11");
-        interviewsTakenAtOneTime.put("9-11", interviewsTakenAtOneTime.get("9-11") + 1);
+        displayFirstSlotBooked(candidateCount);
         return true;
 
     }
@@ -43,11 +39,7 @@ public class SlotBooker {
         if (interviewsTakenAtOneTime.get("11-1") >= 2) {
             return false;
         }
-        char interviewerName = interviewers.fetchInterviewerMatchingWithId(candidateCount);
-        String roomId = rooms.fetchRoomIdGivenRoomNumber(candidateCount);
-
-        System.out.println(candidateCount + " " + String.valueOf(interviewerName) + " " + roomId + " 11-1");
-        interviewsTakenAtOneTime.put("11-1", interviewsTakenAtOneTime.get("11-1") + 1);
+        displaySecondSlotBooked(candidateCount);
         return true;
 
     }
@@ -56,13 +48,36 @@ public class SlotBooker {
         if (interviewsTakenAtOneTime.get("3-5") >= 2) {
             return false;
         }
+
+        displayThirdSlotBooked(candidateCount);
+        return true;
+
+    }
+
+    private void displaySecondSlotBooked(int candidateCount) {
+        char interviewerName = interviewers.fetchInterviewerMatchingWithId(candidateCount);
+        String roomId = rooms.fetchRoomIdGivenRoomNumber(candidateCount);
+
+        System.out.println(candidateCount + " " + String.valueOf(interviewerName) + " " + roomId + " 11-1");
+        interviewsTakenAtOneTime.put("11-1", interviewsTakenAtOneTime.get("11-1") + 1);
+
+
+    }
+
+    private void displayFirstSlotBooked(int candidateCount) {
+        char interviewerName = interviewers.fetchInterviewerMatchingWithId(candidateCount);
+        String roomId = rooms.fetchRoomIdGivenRoomNumber(candidateCount);
+
+        System.out.println(candidateCount + " " + interviewerName + " " + roomId + " 9-11");
+        interviewsTakenAtOneTime.put("9-11", interviewsTakenAtOneTime.get("9-11") + 1);
+    }
+
+    private void displayThirdSlotBooked(int candidateCount) {
         char interviewerName = interviewers.fetchInterviewerMatchingWithId(candidateCount);
         String roomId = rooms.fetchRoomIdGivenRoomNumber(candidateCount);
 
         System.out.println(candidateCount + " " + String.valueOf(interviewerName) + " " + roomId + " 3-5");
         interviewsTakenAtOneTime.put("3-5", interviewsTakenAtOneTime.get("3-5") + 1);
-        return true;
-
     }
 
 }
