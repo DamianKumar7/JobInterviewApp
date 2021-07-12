@@ -1,16 +1,15 @@
 package com.interview;
 
 import java.util.HashMap;
-import java.util.List;
 
 public class Rooms {
     HashMap<Integer, String> mapForRoomNames;
     int numberOfRooms;
     Rooms(int numberOfRooms) {
         this.numberOfRooms = numberOfRooms;
-        mapForRoomNames = new HashMap<Integer, String>();
+        mapForRoomNames = new HashMap<>();
         for(int roomNumber = 1;roomNumber<=numberOfRooms;roomNumber++){
-            mapForRoomNames.put(roomNumber,"R"+String.valueOf(roomNumber));
+            mapForRoomNames.put(roomNumber,"R"+ roomNumber);
         }
 //        System.out.println(mapForRoomNames);
     }

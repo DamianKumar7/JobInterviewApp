@@ -33,7 +33,7 @@ public class SlotBooker {
         char interviewerName = interviewers.fetchInterviewerMatchingWithId(candidateCount);
         String roomId = rooms.fetchRoomIdGivenRoomNumber(candidateCount);
 
-        System.out.println(candidateCount + " " + String.valueOf(interviewerName) + " " + roomId + " 9-11");
+        System.out.println(candidateCount + " " + interviewerName + " " + roomId + " 9-11");
         interviewsTakenAtOneTime.put("9-11", interviewsTakenAtOneTime.get("9-11") + 1);
         return true;
 

@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class SlotBookerTest {
 
     @Test
-    void bookTimings() throws candidateOverflowException {
+    void shouldGiveBookingsWhenFedWithValidCandidateCount() throws candidateOverflowException {
         Rooms newRooms = new Rooms(2);
         Interviewer newInterviewers = new Interviewer(3);
         SlotBooker bookNewSlots = new SlotBooker(5,newInterviewers,newRooms);
